@@ -44,6 +44,110 @@ VEHICLE.Equipment = {
 
 		}
 	},
+	{
+		Category = "Interior Lighting",
+		Options = {
+            {
+				Option = "FS MB1",
+				Components = {
+					{
+						Name = "Federal Signal MB1",
+						Component = "photon_fedsig_mb1",
+						Position = Vector( 0, -80, 55.5 ),
+						Angles = Angle( 0, 0, 0 ),
+						Scale = 1,
+						RenderGroup = RENDERGROUP_OPAQUE,
+					},
+					{
+						Name = "Federal Signal MB1 Controller",
+						Component = "photon_fedsig_mb1_controller",
+						Position = Vector( 0, 1.9, 29.1 ),
+						Angles = Angle( 0, 0, 21 ),
+						Scale = 1,
+						RenderGroup = RENDERGROUP_OPAQUE,
+					},
+					{
+						Name = "@xtream_duo",
+						Component = "photon_fedsig_xstream_duo",
+						Position = Vector( -14.5, -78, 59.2 ),
+						Angles = Angle( 0, 270, 180 ),
+						Scale = 1,
+						Phase = "A",
+						BodyGroups = {
+							["mount"] = 1,
+						},
+						RenderGroup = RENDERGROUP_OPAQUE,
+					},
+					{
+						Inherit = "@xtream_duo",
+						Position = Vector( 14.5, -78, 59.2 ),
+						Angles = Angle( 0, 270, 180 ),
+						Phase = "A",
+						StateMap = "[R] 1"
+					}
+				},
+			},
+
+		}
+	},
+	{
+		Category = "Pushbar Flashers",
+		Options = {
+			{
+				Option = "Koito Flashers",
+				Components = {
+					{
+						Component = "oss_laf150",
+						Position = Vector( -10, 124.5, 31.4 ),
+						BodyGroups = {
+							["bracket"] = 0,
+							["mount"] = 0,
+						},
+						Phase = "B",
+						Angles = Angle( 0, 0, 0 ),
+						Scale = 0.8
+					},
+					{
+						Component = "oss_laf150",
+						Position = Vector( 10, 124.5, 31.4 ),
+						BodyGroups = {
+							["bracket"] = 0,
+							["mount"] = 0,
+						},
+						Phase = "A",
+						Angles = Angle( 0, 0, 0 ),
+						Scale = 0.8
+					},
+					{
+						Name = "@grille_lp3",
+						Component = "photon_patlite_lp3_rin",
+						Position = Vector( -17.55, 124, 29.5 ),
+						Angles = Angle( 270, 90, 0 ),
+						Scale = 1,
+						StateMap = "[R] 1",
+						Phase = "A",
+						SubMaterials = {
+							[5] = "sentry/props/patlite_lp3/glass_outer"
+						},
+						InputActions = {
+							["Emergency.Warning"] = {
+								["MODE1"] = { Light = "FLASH4" },
+								["MODE2"] = { Light = "FLASH4" },
+								["MODE3"] = { Light = "FLASH4" },
+							},
+						}
+					},
+					{
+						Inherit = "@grille_lp3",
+						Position = Vector( 17.55, 124, 29.5 ),
+						Angles = Angle( 90, 270, 0 ),
+						Phase = "B",
+						StateMap = "[R] 1"
+					}
+				}
+			},
+		}
+	},
     {
 		Category = "Spotlight",
 		Options = {
@@ -118,6 +222,30 @@ VEHICLE.Equipment = {
 						Scale = 0.8
 					},
 					{
+						Model = "models/sentry/props/procopper_cvpi.mdl",
+						Position = Vector( 0, -2, 4),
+						Angles = Angle( 0, 0, 0 ),
+						Scale = 1
+					},
+					{
+						Model = "models/sentry/props/jp/oss_mkd1.mdl",
+						Position = Vector( -0.2, 8.15, 30.5 ),
+						Angles = Angle( -69, 270, 0 ),
+						Scale = 1
+					},
+					{
+						Model = "models/sentry/props/jp/necradio.mdl",
+						Position = Vector( -0.2, 10.75, 32 ),
+						Angles = Angle( -69, 270, 0 ),
+						Scale = 1.1
+					},
+					{
+						Model = "models/sentry/props/setina_partition_cvpi.mdl",
+						Position = Vector( 0, 0, 4.5),
+						Angles = Angle( 0, 0, 0 ),
+						Scale = 1
+					},
+					{
 						Model = "models/sentry/props/jp/antenna.mdl",
 						Position = Vector( 0, -35, 74.1),
 						Angles = Angle( 0, 0, 3.5 ),
@@ -141,6 +269,47 @@ VEHICLE.Equipment = {
 						[0] = "sentry/cvpi_hd/black"
 						},
 					},
+					{
+						Model = "models/supermighty/photon/front_holder.mdl",
+						Position = Vector( 0, 118.2, 23),
+						Angles = Angle( 0, 90, 0 ),
+						Scale = 1
+					},
+					{
+						Model = "models/xenosprops/jp_plate/jp_plate.mdl",
+						Position = Vector( 0, -127, 30 ),
+						Angles = Angle( -11, 270, 00 ),
+						Scale = 0.89,
+						BodyGroups = {
+							["rear_seal"] = 0,
+						},
+						SubMaterials = {
+							[0] = "rin/japan_plates/plate_hoshizora",
+						},
+					},
+					{
+						Model = "models/xenosprops/jp_plate/jp_plate.mdl",
+						Position = Vector( 0, 118.9, 23 ),
+						Angles = Angle( 0, 90, 0 ),
+						Scale = 0.89,
+						BodyGroups = {
+							["rear_seal"] = 0,
+						},
+						SubMaterials = {
+							[0] = "rin/japan_plates/plate_hoshizora",
+						},
+					},
+					{
+						Model = "models/schmal/sgm_char15_glass.mdl",
+						Position = Vector( 0, 0, 0 ),
+						Angles = Angle( 0, -90, 0 ),
+						BodyGroups = {
+							["cage"] = 1
+						}
+					}
+				},
+				SubMaterials = {
+					{ Id = 2, Material = "photon/common/blank" }
 				}
 			}
 		}
